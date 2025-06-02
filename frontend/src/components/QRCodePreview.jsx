@@ -15,7 +15,7 @@ const QRCodePreview = ({ qrCodeUrl, isLoading, isValid, inputValue }) => {
             className="flex flex-col items-center justify-center"
           >
             <Loader2 className="h-16 w-16 text-blue-500 animate-spin mb-4" />
-            <p className="text-slate-600">Generating your QR code...</p>
+            <p className="text-slate-600">Gerando seu código QR...</p>
           </motion.div>
         ) : qrCodeUrl ? (
           <motion.div
@@ -28,7 +28,7 @@ const QRCodePreview = ({ qrCodeUrl, isLoading, isValid, inputValue }) => {
           >
             <img 
               src={qrCodeUrl} 
-              alt="Generated QR Code" 
+              alt="Código QR Gerado" 
               className="max-w-full max-h-64 object-contain rounded-lg shadow-sm" 
             />
             <p className="mt-4 text-sm text-center text-slate-600 max-w-xs break-words">
@@ -46,11 +46,11 @@ const QRCodePreview = ({ qrCodeUrl, isLoading, isValid, inputValue }) => {
             <QrCode className="h-16 w-16 mb-4" strokeWidth={1} />
             <p className="text-center">
               {!inputValue ? (
-                "Enter information to generate a QR code"
+                "Insira informações para gerar um código QR"
               ) : !isValid ? (
-                "Please enter valid information"
+                "Por favor, insira informações válidas"
               ) : (
-                "QR code will appear here"
+                "O código QR aparecerá aqui"
               )}
             </p>
           </motion.div>
