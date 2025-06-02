@@ -14,7 +14,7 @@ const Footer = () => {
           
           <div className="flex items-center space-x-4">
             <a 
-              href="https://github.com/filippemonteiro/teste_qr-code" 
+              href="https://github.com/filippemonteiro/gt15_gerador_de_qr-code" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-slate-300 hover:text-white transition-colors"
@@ -27,7 +27,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-slate-300 hover:text-white transition-colors"
             >
-              Desenvolvido com a API do QuickChart
+              Desenvolvido por Filippe Monteiro com a API do QuickChart
             </a>
           </div>
         </div>
