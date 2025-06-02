@@ -4,20 +4,20 @@ import { Link, FileText, User, Check, AlertTriangle } from 'lucide-react';
 const InputSection = ({ inputType, setInputType, inputValue, setInputValue, isValid }) => {
   const inputTypes = [
     { id: 'url', label: 'URL', icon: Link },
-    { id: 'text', label: 'Text', icon: FileText },
-    { id: 'contact', label: 'Contact', icon: User }
+    { id: 'text', label: 'Texto', icon: FileText },
+    { id: 'contact', label: 'Contato', icon: User }
   ];
 
   const getPlaceholder = () => {
     switch (inputType) {
       case 'url':
-        return 'Enter a URL (e.g., https://example.com)';
+        return 'Digite uma URL (ex: https://exemplo.com)';
       case 'text':
-        return 'Enter your text message';
+        return 'Digite sua mensagem de texto';
       case 'contact':
-        return 'Enter contact info (e.g., Name, Email, Phone)';
+        return 'Digite as informações de contato (ex: Nome, Email, Telefone)';
       default:
-        return 'Enter information';
+        return 'Digite a informação';
     }
   };
 
@@ -52,12 +52,12 @@ const InputSection = ({ inputType, setInputType, inputValue, setInputValue, isVa
             {isValid ? (
               <div className="flex items-center text-green-600">
                 <Check className="h-5 w-5 mr-1" />
-                <span className="text-sm">Valid</span>
+                <span className="text-sm">Válido</span>
               </div>
             ) : (
               <div className="flex items-center text-amber-600">
                 <AlertTriangle className="h-5 w-5 mr-1" />
-                <span className="text-sm">Invalid</span>
+                <span className="text-sm">Inválido</span>
               </div>
             )}
           </div>
@@ -66,13 +66,13 @@ const InputSection = ({ inputType, setInputType, inputValue, setInputValue, isVa
 
       <div className="mt-2 text-sm text-slate-500">
         {inputType === 'url' && (
-          <p>Enter a valid URL including http:// or https://</p>
+          <p>Digite uma URL válida incluindo http:// ou https://</p>
         )}
         {inputType === 'text' && (
-          <p>Enter any text message, quote, or information</p>
+          <p>Digite qualquer mensagem de texto, citação ou informação</p>
         )}
         {inputType === 'contact' && (
-          <p>Format: Name, Email, Phone (one per line)</p>
+          <p>Formato: Nome, Email, Telefone (um por linha)</p>
         )}
       </div>
     </div>
