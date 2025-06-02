@@ -19,7 +19,6 @@ const QRCodeGenerator = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isValid, setIsValid] = useState(false);
 
-  // Handle input value change and validate
   useEffect(() => {
     if (inputType === 'url') {
       setIsValid(validateUrl(inputValue));
@@ -28,7 +27,6 @@ const QRCodeGenerator = () => {
     }
   }, [inputValue, inputType]);
 
-  // Generate QR code when inputs change (debounced)
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
       if (isValid && inputValue) {
@@ -55,8 +53,8 @@ const QRCodeGenerator = () => {
       const qrCodeUrl = await generateQrCode(qrData);
       setQrCodeUrl(qrCodeUrl);
     } catch (error) {
-      console.error('Error generating QR code:', error);
-      toast.error('Failed to generate QR code. Please try again.');
+      console.error('Erro ao gerar código QR:', error);
+      toast.error('Falha ao gerar código QR. Por favor, tente novamente.');
     } finally {
       setIsLoading(false);
     }
@@ -72,7 +70,7 @@ const QRCodeGenerator = () => {
     link.click();
     document.body.removeChild(link);
     
-    toast.success('QR code downloaded successfully!');
+    toast.success('Download do código QR realizado com sucesso!');
   };
 
   return (
@@ -83,7 +81,7 @@ const QRCodeGenerator = () => {
         transition={{ duration: 0.5 }}
         className="card"
       >
-        <h3 className="text-xl font-semibold mb-4">1. Enter Your Information</h3>
+        <h3 className="text-xl font-semibold mb-4">1. Insira Suas Informações</h3>
         
         <InputSection 
           inputType={inputType}
@@ -94,7 +92,7 @@ const QRCodeGenerator = () => {
         />
         
         <div className="mt-6">
-          <h3 className="text-xl font-semibold mb-4">2. Customize Your QR Code</h3>
+          <h3 className="text-xl font-semibold mb-4">2. Personalize Seu Código QR</h3>
           
           <CustomizationSection 
             qrSize={qrSize}
@@ -115,7 +113,7 @@ const QRCodeGenerator = () => {
         transition={{ duration: 0.5 }}
         className="card flex flex-col"
       >
-        <h3 className="text-xl font-semibold mb-4">QR Code Preview</h3>
+        <h3 className="text-xl font-semibold mb-4">Pré-visualização do Código QR</h3>
         
         <QRCodePreview 
           qrCodeUrl={qrCodeUrl} 
@@ -130,7 +128,7 @@ const QRCodeGenerator = () => {
           disabled={!qrCodeUrl || isLoading}
         >
           <Download className="mr-2 h-5 w-5" />
-          Download {format.toUpperCase()}
+          Baixar {format.toUpperCase()}
         </button>
       </motion.div>
     </div>
